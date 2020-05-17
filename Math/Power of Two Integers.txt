@@ -1,0 +1,14 @@
+int Solution::isPower(int A) {
+    int t=0;
+    if(A<2)
+     return 1;
+    for(int i=2;i<=sqrt(A);i++)
+    {
+     for (auto j = 2; j<32; ++j)
+        {
+            if(pow(i, j)==A)
+                return true;
+        }
+    }
+    return t;
+}
