@@ -1,0 +1,30 @@
+vector<int> Solution::plusOne(vector<int> &A) {
+    int n=A.size();
+    reverse(A.begin(),A.end());
+    
+  
+    if(A[0]!=9)
+    {
+        A[0]++;
+        
+        reverse(A.begin(),A.end());
+        while(A[0]==0 && A.size()>1) A.erase(A.begin());
+        return A;
+    }
+    int i=0;
+    while(A[i]==9&& i<n)
+    {
+        A[i]=0;
+        i++;
+    }
+    if(i==n)
+    {
+        A.push_back(1);
+    }
+    else
+    A[i]=A[i]+1;
+    reverse(A.begin(),A.end());
+    while(A[0]==0 && A.size()>1) A.erase(A.begin());
+    return A;
+    
+}

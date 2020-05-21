@@ -1,0 +1,45 @@
+vector<vector<int> > Solution::generateMatrix(int A) {
+ int n=A;
+  vector<vector<int> > res;
+    if(n==0){
+        return res;
+    }
+// initially created an empty 2D vector
+    vector<int> temp;
+    for(int i = 0; i < n; i++){
+        temp.push_back(0);
+    }
+    for(int i = 0; i < n; i++){
+        res.push_back(temp);
+    }
+// logic starts here
+    int sR = 0; 
+    int eR = n-1;
+    int sC = 0;
+    int eC = n-1;
+    
+    int val = 1;
+    while(sR <= eR && sC <= eC){
+        for(int j = sC; j<=eC; j++){
+            res[sR][j] = val;
+            val++;
+        }
+        sR++;
+        for(int i = sR; i <= eR; i++){
+            res[i][eC] = val;
+            val++;
+        }
+        eC--;
+        for(int j = eC; j>=sC; j--){
+            res[eR][j] = val;
+            val++;
+        }
+        eR--;
+        for(int i = eR; i>=sR; i--){
+            res[i][sC] = val;
+            val++;
+        }
+        sC++;
+    }
+    return res;
+}

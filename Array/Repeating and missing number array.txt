@@ -1,0 +1,17 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> repeatedNumber(final List<Integer> A) {
+        long S=0;
+        long P=0;
+        for(int i=1;i<=A.size();i++){
+            S=S+(long)i-(long)A.get(i-1);
+            P=P+(long)(i*i)-(long)(A.get(i-1)*A.get(i-1));
+        }
+        long B=(P/S);
+        long x=(S+B)/2;
+        long y=(x-S);
+        list.add((int)y);
+        list.add((int)x);
+        return list;
+    }
+}
